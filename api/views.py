@@ -5,10 +5,11 @@ from videos.models import Video, Categories
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.generics import get_object_or_404
-from videos.serializers import VideoSerializer, CategoriesSerializer
+from videos.serializers import VideoSerializer, CategoriesSerializer, VideoOTDSerializer
 from users.serializers import UserSerializer
 from users.models import User
 from videos.extentions.videosextentions import VideoExtentions
+from videos.models import VideoOTD
 
 videoExtentions = VideoExtentions()
 
@@ -79,4 +80,10 @@ class UserDetailAPIView(APIView):
             return Response(userSerializer.data)
         else:
             return Response({'message' : 'yanlis kullanici adi veya sifre'})
+        
+class VideoOTDAPIView(APIView):
+    def get(self):
+        videos = VideoOTD.objects.all()
+        videosSerializer = VideoOTDSerializer(videos, many=True)
+        return Response(videosSerializer.data)
         

@@ -28,3 +28,9 @@ class Categories(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+class VideoOTD(models.Model):
+    video = models.ForeignKey(Video, on_delete=models.CASCADE, null=True)
+
+    def __str__(self)->str:
+        return self.video.name

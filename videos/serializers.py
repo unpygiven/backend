@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Video, Keyword, Categories
+from .models import Video, Keyword, Categories, VideoOTD
 from users.serializers import UserSerializer
 from users.models import User
 
@@ -57,4 +57,10 @@ class VideoSerializer(serializers.ModelSerializer):
         instance.keywords.set(keepKeywords)
         instance.save()
         return instance
+    
+class VideoOTDSerializer(serializers.ModelSerializer):
+    video = VideoSerializer
+    class Meta:
+        model = VideoOTD
+        fields = ('video')
             

@@ -8,4 +8,5 @@ urlpatterns = [
     path('video/<int:pk>/', views.VideoDetailAPIView.as_view()),
     path('categories/', views.CategoryAPIView.as_view()),
     path('user/', views.UserDetailAPIView.as_view()),
+    path('videosotd/', views.VideoOTDAPIView.as_view()),
 ]
