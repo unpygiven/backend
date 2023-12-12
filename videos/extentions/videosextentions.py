@@ -37,7 +37,7 @@ class VideoExtentions:
     
     def GetByPage(self, page : int, keywords : list):
         videos = self.__SortDicByValue(keywords)
-        videos.reverse()
+        #videos.reverse()
         VIDEO_PER_PAGE = 10
         first_index = (page - 1) * VIDEO_PER_PAGE
         last_index = (page) * VIDEO_PER_PAGE
