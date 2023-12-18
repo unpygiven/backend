@@ -14,7 +14,7 @@ class VideoExtentions:
             return videos
         for keyword in keywords:
             videos += Video.objects.filter(keywords__name__contains = keyword)
-        #videos.reverse()
+        videos.reverse()
         return videos
     
     def __VideosCount(self, keywords : list):
