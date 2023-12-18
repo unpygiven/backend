@@ -14,7 +14,7 @@ class VideoExtentions:
             return videos
         for keyword in keywords:
             videos += Video.objects.filter(keywords__name__contains = keyword)
-        videos.reverse()
+        #videos.reverse()
         return videos
     
     def __VideosCount(self, keywords : list):
@@ -37,7 +37,7 @@ class VideoExtentions:
     
     def GetByPage(self, page : int, keywords : list):
         videos = self.__SortDicByValue(keywords)
-        #videos.reverse()
+        videos.reverse()
         VIDEO_PER_PAGE = 10
         first_index = (page - 1) * VIDEO_PER_PAGE
         last_index = (page) * VIDEO_PER_PAGE
