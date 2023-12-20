@@ -59,8 +59,8 @@ class VideoSerializer(serializers.ModelSerializer):
         return instance
     
 class VideoOTDSerializer(serializers.ModelSerializer):
-    video = VideoSerializer
+    video = VideoSerializer()
     class Meta:
         model = VideoOTD
-        fields = ('video')
+        fields = '__all__'
             

@@ -12,6 +12,7 @@ from videos.extentions.videosextentions import VideoExtentions
 from videos.models import VideoOTD
 
 videoExtentions = VideoExtentions()
+#deneme
 
 # Create your views here.
 class VideoListCreateAPIView(APIView):
@@ -82,7 +83,7 @@ class UserDetailAPIView(APIView):
             return Response({'message' : 'yanlis kullanici adi veya sifre'})
         
 class VideoOTDAPIView(APIView):
-    def get(self):
+    def get(self, request):
         videos = VideoOTD.objects.all()
         videosSerializer = VideoOTDSerializer(videos, many=True)
         return Response(videosSerializer.data)
